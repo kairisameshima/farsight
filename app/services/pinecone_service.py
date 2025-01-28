@@ -7,15 +7,17 @@ pc = pinecone.Pinecone(api_key=PINECONE_API_KEY)
 # Access the index
 index = pc.Index(PINECONE_INDEX)
 
-def query_pinecone(query_text, filters=None):
-    # Convert the query text to a vector
-    query_embedding = get_query_embedding(query_text)
-    print(len(query_embedding.data[0].embedding))
+class PineconeService():
+    def __init__(self):
+            self.index = index
 
+    def query_pinecone(self, query_text, filters=None):
+        # Convert the query text to a vector
+        query_embedding = get_query_embedding(query_text)
 
-    return index.query(
-        vector=query_embedding.data[0].embedding,
-        top_k=10,
-        include_metadata=True,
-        filter=filters
-    )
+        return index.query(
+            vector=query_embedding.data[0].embedding,
+            top_k=100,
+            include_metadata=True,
+            filter=filters
+        )
