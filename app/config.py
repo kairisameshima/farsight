@@ -14,3 +14,6 @@ POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 # Pinecone settings
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_INDEX = os.getenv("PINECONE_INDEX")
+
+# OpenAI settings
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
